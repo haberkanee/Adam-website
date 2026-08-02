@@ -161,25 +161,29 @@ header::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:1
 .hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
 
 @media (min-width:900px){
-  .hero{align-items:center;padding:78px 0 0;min-height:min(100svh,860px)}
+  .hero{align-items:center;padding:78px 0 0;min-height:min(100svh,880px)}
+  /* de tekst begint dichter bij de linkerrand, niet midden op het scherm */
+  .hero .wrap{width:min(1440px,90%)}
   .hero-bg{
-    left:auto;right:0;width:54vw;max-width:1000px;height:100%;
-    object-position:46% 58%;
+    left:auto;right:0;width:64vw;max-width:1180px;height:100%;
+    object-position:50% 56%;
+    /* de linkerkant lost zacht op in het donkerblauw, dus geen harde naad */
+    -webkit-mask-image:linear-gradient(90deg, transparent 0%, rgba(0,0,0,.25) 14%, rgba(0,0,0,.75) 30%, #000 44%);
+    mask-image:linear-gradient(90deg, transparent 0%, rgba(0,0,0,.25) 14%, rgba(0,0,0,.75) 30%, #000 44%);
   }
   .hero-scrim{
     background:
-      linear-gradient(90deg, var(--navy) 0%, var(--navy) 38%, rgba(10,27,46,.86) 46%,
-                      rgba(10,27,46,.28) 58%, rgba(10,27,46,0) 72%),
-      linear-gradient(0deg, rgba(10,27,46,.55) 0%, transparent 34%);
+      linear-gradient(90deg, rgba(10,27,46,.88) 0%, rgba(10,27,46,.62) 26%, rgba(10,27,46,.2) 46%, transparent 62%),
+      linear-gradient(0deg, rgba(10,27,46,.6) 0%, transparent 30%);
   }
-  .hero-inhoud{max-width:min(500px,40vw)}
-  .hero h1{font-size:clamp(2.8rem,3.6vw,4rem);margin-bottom:1.3rem}
-  .hero p{font-size:1.05rem;margin-bottom:2.3rem}
+  .hero-inhoud{max-width:min(520px,38vw)}
+  .hero h1{font-size:clamp(2.6rem,3.2vw,3.7rem);margin-bottom:1.2rem}
+  .hero p{font-size:1.04rem;margin-bottom:2.2rem}
 }
 
-@media (min-width:1500px){
-  .hero-bg{width:46vw}
-  .hero-inhoud{max-width:560px}
+@media (min-width:1600px){
+  .hero .wrap{width:min(1560px,88%)}
+  .hero-inhoud{max-width:540px}
 }
 
 .hero-visual{position:relative}
